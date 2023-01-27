@@ -6,7 +6,7 @@ CREATE TABLE
     SpotifyClone.plans(
         plan_id INT PRIMARY KEY AUTO_INCREMENT,
         plan_name VARCHAR(15) NOT NULL,
-        values DECIMAL(3, 2)
+        `value` DECIMAL(5, 2)
     ) engine = InnoDB;
     
 CREATE TABLE
@@ -62,12 +62,13 @@ CREATE TABLE
         FOREIGN KEY (artist_id) REFERENCES artist (artist_id)
     ) engine = InnoDB;
 
-    INSERT INTO SpotifyClone.plans (plan_id, values)
+    INSERT INTO SpotifyClone.plans (plan_name, `value`)
   VALUES
     ('gratuito', 0.00),
+    ('familiar', 7.99),
     ('universitario', 5.99),
-    ('pessoal', 6.99),
-    ('familiar', 7.99);
+    ('pessoal', 6.99);
+    
 
   INSERT INTO SpotifyClone.artist (artist)
   VALUES
@@ -115,7 +116,7 @@ CREATE TABLE
     ('The Bard’s Song',	244,	7),
     ('Feeling Good',	100,	8);
   
-  INSERT INTO SpotifyClone.history_ (user_id, music_id, release_date)
+  INSERT INTO SpotifyClone.history_ (user_id, music_id, played)
   VALUES
     (1,	8, '2022-02-28 10:45:55'),
     (1,	2, '2020-05-02 05:30:35'),    
@@ -150,3 +151,4 @@ CREATE TABLE
     (7, 6),
     (9, 3),
     (10, 2);
+    
